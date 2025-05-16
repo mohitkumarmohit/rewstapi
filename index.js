@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const router = require('./routes/authRoutes.js')
 const connectDB = require('./database/database.js')
-const authMiddleware = require('./middleware/middleware.js')
+// const authMiddleware = require('./middleware/middleware.js')
 const Auth = require('./middleware/auth.js')
 const cors = require('cors');
 require('dotenv').config();
