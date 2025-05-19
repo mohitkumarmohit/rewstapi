@@ -3,7 +3,6 @@ const routers = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../models/models');
-const { ToastContainer, toast } = require('react-toastify');
 require('dotenv').config();
 
 // Register
@@ -15,11 +14,9 @@ routers.post('/register', async (req, res) => {
     if (userExist) return res.status(400).json({ message: 'User already exists' });
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    await User.create({ name, email, password: hashedPassword });        
-    toast.success('User successfully registered');
+    await User.create({ name, email, password: hashedPassword });
     res.status(201).json({ message: 'User successfully registered' });
   } catch (err) {
-    toast.error(data.message);
     res.status(500).json({ message: 'Server error' });
   }
 });
